@@ -51,6 +51,16 @@ export default function Home() {
   return (
     <main className="relative w-full h-screen bg-background overflow-hidden selection:bg-foreground selection:text-background">
       
+      {/* Mobile Warning Overlay */}
+      <div className="md:hidden fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center p-8 text-center border-[16px] border-foreground">
+        <h2 className="text-4xl font-bold uppercase tracking-tighter mb-4 text-foreground leading-none">
+          Hold Up!
+        </h2>
+        <p className="text-sm font-bold tracking-widest text-foreground/70 uppercase">
+          This portfolio will look garbage on your phone. <br/><br/>Please use a larger screen to view.
+        </p>
+      </div>
+
       {/* 1. Intro Screen */}
       <AnimatePresence>
         {!showProjects && !showAbout && !showWork && !showDeployments && !showContact && (
