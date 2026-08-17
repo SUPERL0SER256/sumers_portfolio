@@ -45,12 +45,19 @@ export default function DeploymentsPage() {
               const aIsWebsite = websiteSlugs.includes(a.slug);
               const bIsWebsite = websiteSlugs.includes(b.slug);
               
+              const aIsPdp = a.slug === 'pdp';
+              const bIsPdp = b.slug === 'pdp';
+              
               const aIsBehance = a.externalLink?.includes('behance.net') || false;
               const bIsBehance = b.externalLink?.includes('behance.net') || false;
 
               if (aIsWebsite && !bIsWebsite) return -1;
               if (!aIsWebsite && bIsWebsite) return 1;
               if (aIsWebsite && bIsWebsite) return websiteSlugs.indexOf(a.slug) - websiteSlugs.indexOf(b.slug);
+              
+              if (aIsPdp && !bIsPdp) return -1;
+              if (!aIsPdp && bIsPdp) return 1;
+              
               if (aIsBehance && !bIsBehance) return -1;
               if (!aIsBehance && bIsBehance) return 1;
               return 0;

@@ -376,12 +376,6 @@ export default function Home() {
             <div className={`w-full flex flex-col items-start text-left space-y-8 mt-12 md:mt-0 ${isGridView ? 'max-w-7xl' : 'max-w-4xl'}`}>
               <div className="flex gap-4 mb-4">
                 <button 
-                  onClick={() => { setShowDeployments(false); setShowProjects(true); }}
-                  className="text-xs font-bold tracking-widest uppercase border border-foreground/20 hover:bg-foreground hover:text-background transition-colors px-4 py-2 rounded-full flex items-center gap-2"
-                >
-                  ← Back to Canvas
-                </button>
-                <button 
                   onClick={() => setIsGridView(!isGridView)}
                   className="text-xs font-bold tracking-widest uppercase border border-foreground/20 hover:bg-foreground hover:text-background transition-colors px-4 py-2 rounded-full flex items-center gap-2"
                 >
@@ -402,12 +396,19 @@ export default function Home() {
                     const aIsWebsite = websiteSlugs.includes(a.slug);
                     const bIsWebsite = websiteSlugs.includes(b.slug);
                     
+                    const aIsPdp = a.slug === 'pdp';
+                    const bIsPdp = b.slug === 'pdp';
+                    
                     const aIsBehance = a.externalLink?.includes('behance.net') || false;
                     const bIsBehance = b.externalLink?.includes('behance.net') || false;
 
                     if (aIsWebsite && !bIsWebsite) return -1;
                     if (!aIsWebsite && bIsWebsite) return 1;
                     if (aIsWebsite && bIsWebsite) return websiteSlugs.indexOf(a.slug) - websiteSlugs.indexOf(b.slug);
+                    
+                    if (aIsPdp && !bIsPdp) return -1;
+                    if (!aIsPdp && bIsPdp) return 1;
+                    
                     if (aIsBehance && !bIsBehance) return -1;
                     if (!aIsBehance && bIsBehance) return 1;
                     return 0;

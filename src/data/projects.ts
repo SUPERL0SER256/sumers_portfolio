@@ -102,7 +102,7 @@ export const projects: Project[] = [
         category: 'Web Design / Development',
         description: 'A dynamic landing page built for The Global Impact Forum.',
         image: '/images/tgif.png',
-        externalLink: 'https://tgif-landing-page.vercel.app/',
+        externalLink: 'https://www.thegiforum.org/',
     },
     {
         slug: 'indian-glyph-webcam',
