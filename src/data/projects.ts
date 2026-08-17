@@ -29,7 +29,7 @@ export const projects: Project[] = [
         title: 'Hyperbolic Paraboloid Coffee Table',
         category: 'Mathematics/ Furniture Design',
         description: 'A study and exploration of the hyperbolic paraboloid.',
-        image: '/images/hyperbolic.jpeg',
+        image: '/images/hyperbolic.png',
         externalLink: '/pdfs/maths-hyperbolic-paraboloid.pdf',
     },
     {
@@ -85,7 +85,7 @@ export const projects: Project[] = [
         title: 'WOC PDP',
         category: 'Product Design',
         description: 'A product design project exploring the PDP concept.',
-        image: '/images/woc.jpg',
+        image: '/images/woc.png',
         externalLink: '/pdfs/WOC-project-pdp.pdf',
     },
     {

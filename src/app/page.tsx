@@ -387,7 +387,31 @@ export default function Home() {
               <div className="flex flex-col gap-24 w-full mt-4 pb-24">
                 
                 {projects
-                  .filter(project => project.slug !== 'zomato' && project.slug !== 'spotify')
+                  .filter(project => !['zomato', 'spotify', 'lamp-poster', '25151017-sumer-vaidya'].includes(project.slug))
+                  .sort((a, b) => {
+                    const websiteSlugs = ['janus-system', 'indian-glyph-webcam', 'tgif', 'human-nature'];
+                    const aIsWebsite = websiteSlugs.includes(a.slug);
+                    const bIsWebsite = websiteSlugs.includes(b.slug);
+                    
+                    const aIsBehance = a.externalLink?.includes('behance.net') || false;
+                    const bIsBehance = b.externalLink?.includes('behance.net') || false;
+
+                    // 1. Websites at the top (keep specific order if possible, but boolean sort works for grouping)
+                    if (aIsWebsite && !bIsWebsite) return -1;
+                    if (!aIsWebsite && bIsWebsite) return 1;
+                    
+                    // If both are websites, sort by their order in the websiteSlugs array
+                    if (aIsWebsite && bIsWebsite) {
+                      return websiteSlugs.indexOf(a.slug) - websiteSlugs.indexOf(b.slug);
+                    }
+
+                    // 2. Behance projects next
+                    if (aIsBehance && !bIsBehance) return -1;
+                    if (!aIsBehance && bIsBehance) return 1;
+
+                    // 3. The rest at the bottom (keep their original relative order)
+                    return 0;
+                  })
                   .map(project => (
                     <div key={project.slug} className="flex flex-col group">
                       <h3 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4 uppercase">{project.title}</h3>
