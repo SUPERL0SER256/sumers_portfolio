@@ -142,7 +142,7 @@ export default function Home() {
               onClick={() => { setShowDeployments(true); setShowWork(false); setShowAbout(false); setShowProjects(false); setShowContact(false); }}
               className="hover:opacity-50 transition-opacity uppercase tracking-widest font-semibold"
             >
-              Deployments
+              Projects
             </button>
             <button 
               onClick={() => { setShowAbout(true); setShowWork(false); setShowDeployments(false); setShowProjects(false); setShowContact(false); }}
@@ -213,7 +213,7 @@ export default function Home() {
                 onClick={() => { setShowAbout(false); setShowProjects(true); }}
                 className="text-xs font-bold tracking-widest uppercase border border-foreground/20 hover:bg-foreground hover:text-background transition-colors px-4 py-2 w-fit rounded-full flex items-center gap-2 mb-4"
               >
-                ← Back to Projects
+                ← Back to Canvas
               </button>
               
               <h1 className="text-5xl md:text-8xl font-bold tracking-tighter uppercase leading-none border-b-4 border-foreground pb-4 w-full">
@@ -269,7 +269,7 @@ export default function Home() {
                 onClick={() => { setShowWork(false); setShowProjects(true); }}
                 className="text-xs font-bold tracking-widest uppercase border border-foreground/20 hover:bg-foreground hover:text-background transition-colors px-4 py-2 w-fit rounded-full flex items-center gap-2 mb-4"
               >
-                ← Back to Projects
+                ← Back to Canvas
               </button>
               
               <h1 className="text-5xl md:text-8xl font-bold tracking-tighter uppercase leading-none border-b-8 border-foreground pb-8 w-full">
@@ -379,7 +379,7 @@ export default function Home() {
                   onClick={() => { setShowDeployments(false); setShowProjects(true); }}
                   className="text-xs font-bold tracking-widest uppercase border border-foreground/20 hover:bg-foreground hover:text-background transition-colors px-4 py-2 rounded-full flex items-center gap-2"
                 >
-                  ← Back to Projects
+                  ← Back to Canvas
                 </button>
                 <button 
                   onClick={() => setIsGridView(!isGridView)}
@@ -390,7 +390,7 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl md:text-8xl font-bold tracking-tighter uppercase leading-none border-b-8 border-foreground pb-8 w-full mb-12">
-                Deployments
+                Projects
               </h1>
               
               <div className={`w-full mt-4 pb-24 ${isGridView ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12' : 'flex flex-col gap-24'}`}>

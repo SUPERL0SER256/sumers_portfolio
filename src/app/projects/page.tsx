@@ -17,16 +17,6 @@ export default function DeploymentsPage() {
   return (
     <main className="relative w-full min-h-screen bg-background selection:bg-foreground selection:text-background flex flex-col items-center justify-start p-6 md:p-24">
       
-      {/* Mobile Warning Overlay */}
-      <div className="md:hidden fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center p-8 text-center border-[16px] border-foreground">
-        <h2 className="text-4xl font-bold uppercase tracking-tighter mb-4 text-foreground leading-none">
-          Hold Up!
-        </h2>
-        <p className="text-sm font-bold tracking-widest text-foreground/70 uppercase">
-          This portfolio will look garbage on your phone. <br/><br/>Please use a larger screen to view.
-        </p>
-      </div>
-
       <motion.div 
         className={`w-full flex flex-col items-start text-left space-y-8 mt-12 md:mt-0 ${isGridView ? 'max-w-7xl' : 'max-w-4xl'}`}
         initial={{ opacity: 0, y: 50 }}
@@ -43,7 +33,7 @@ export default function DeploymentsPage() {
         </div>
         
         <h1 className="text-5xl md:text-8xl font-bold tracking-tighter uppercase leading-none border-b-8 border-foreground pb-8 w-full mb-12">
-          Deployments
+          Projects
         </h1>
         
         <div className={`w-full mt-4 pb-24 ${isGridView ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12' : 'flex flex-col gap-24'}`}>
