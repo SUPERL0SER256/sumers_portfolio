@@ -386,49 +386,22 @@ export default function Home() {
               
               <div className="flex flex-col gap-24 w-full mt-4 pb-24">
                 
-                {/* Janus System */}
-                <div className="flex flex-col group">
-                  <h3 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4 uppercase">Janus System</h3>
-                  <a href="https://www.janussystem.com/" target="_blank" rel="noopener noreferrer" className="text-lg md:text-2xl font-medium tracking-wide underline underline-offset-8 hover:opacity-50 transition-opacity mb-8 w-fit">
-                    www.janussystem.com ↗
-                  </a>
-                  <div className="w-full overflow-hidden bg-accent">
-                    <img src="/images/janus.png" alt="Janus System" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                </div>
-
-                {/* Indian Glyph Art Generator */}
-                <div className="flex flex-col group">
-                  <h3 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4 uppercase">Indian Glyph Art Generator</h3>
-                  <a href="https://superl0ser256.github.io/Indian-glyph-webcam-art-generator/" target="_blank" rel="noopener noreferrer" className="text-lg md:text-2xl font-medium tracking-wide underline underline-offset-8 hover:opacity-50 transition-opacity mb-8 w-fit">
-                    superl0ser256.github.io/Indian-glyph-webcam-art-generator ↗
-                  </a>
-                  <div className="w-full overflow-hidden bg-accent">
-                    <img src="/images/glyph.png" alt="Indian Glyph Art Generator" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                </div>
-
-                {/* TGIF Landing Page */}
-                <div className="flex flex-col group">
-                  <h3 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4 uppercase">TGIF Landing Page</h3>
-                  <a href="https://www.thegiforum.org/" target="_blank" rel="noopener noreferrer" className="text-lg md:text-2xl font-medium tracking-wide underline underline-offset-8 hover:opacity-50 transition-opacity mb-8 w-fit">
-                    www.thegiforum.org ↗
-                  </a>
-                  <div className="w-full overflow-hidden bg-accent">
-                    <img src="/images/tgif.png" alt="TGIF Landing Page" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                </div>
-
-                {/* Human Nature */}
-                <div className="flex flex-col group">
-                  <h3 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4 uppercase">Human Nature</h3>
-                  <a href="https://superl0ser256.github.io/human-nature/" target="_blank" rel="noopener noreferrer" className="text-lg md:text-2xl font-medium tracking-wide underline underline-offset-8 hover:opacity-50 transition-opacity mb-8 w-fit">
-                    superl0ser256.github.io/human-nature ↗
-                  </a>
-                  <div className="w-full overflow-hidden bg-accent">
-                    <img src="/images/human_nature.png" alt="Human Nature" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                </div>
+                {projects
+                  .filter(project => project.slug !== 'zomato' && project.slug !== 'spotify')
+                  .map(project => (
+                    <div key={project.slug} className="flex flex-col group">
+                      <h3 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4 uppercase">{project.title}</h3>
+                      {project.externalLink && (
+                        <a href={project.externalLink} target="_blank" rel="noopener noreferrer" className="text-lg md:text-2xl font-medium tracking-wide underline underline-offset-8 hover:opacity-50 transition-opacity mb-8 w-fit break-all">
+                          {project.externalLink.replace(/^https?:\/\/(www\.)?/, '')} ↗
+                        </a>
+                      )}
+                      <div className="w-full overflow-hidden bg-accent">
+                        <img src={project.image} alt={project.title} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+                      </div>
+                    </div>
+                  ))
+                }
 
                 {/* Behance */}
                 <div className="flex flex-col group mt-12 pt-12 border-t border-foreground/10">
