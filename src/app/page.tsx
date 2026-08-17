@@ -421,7 +421,7 @@ export default function Home() {
                         </a>
                       )}
                       <div className="w-full h-full overflow-hidden bg-accent">
-                        <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 aspect-video md:aspect-[4/3]" />
+                        <img src={project.image} alt={project.title} className={`w-full object-cover group-hover:scale-105 transition-transform duration-700 ${isGridView ? 'h-full aspect-video md:aspect-[4/3]' : 'h-auto'}`} />
                       </div>
                     </div>
                   ))
